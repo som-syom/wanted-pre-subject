@@ -1,7 +1,8 @@
 import React from "react";
 import "./stylesheets/NaviBar.css";
-import icon_menu from "./assets/icon-menu.png";
-import title_logo from "./assets/wanted_Logo_black.png";
+import IconMenu from "./assets/icon-menu.png";
+import TitleLogo from "./assets/wanted_Logo_black.png";
+import SearchBtn from "./assets/search.svg";
 
 function NaviBar() {
   return (
@@ -11,14 +12,14 @@ function NaviBar() {
           <div className="navibar__left">
             <button className="navibar__left__menu-btn">
               <img
-                src={icon_menu}
+                src={IconMenu}
                 alt="hamberger menu"
                 className="navibar__left__menu-btn__hamberger"
               />
             </button>
             <button className="navibar__left__menu-btn">
               <img
-                src={title_logo}
+                src={TitleLogo}
                 alt="wanted title logo"
                 className="navibar__left__menu-btn__title"
               />
@@ -34,7 +35,13 @@ function NaviBar() {
             <button className="navibar__middle__menu-btn">AI 합격예측</button>
           </div>
           <div className="navibar__right">
-            <button className="navibar__right__menu-btn">검색</button>
+            <button className="navibar__right__menu-btn">
+              <img
+                src={SearchBtn}
+                alt="search button"
+                className="navibar__right__menu-btn__search"
+              />
+            </button>
             <button className="navibar__right__menu-btn">
               회원가입/로그인
             </button>

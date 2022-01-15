@@ -48,3 +48,8 @@
   height: auto;
   /* height: 17px; */
 }
+
+.navibar__right__menu-btn__search {
+  width: 18px;
+  height: 18px;
+}
