@@ -17,7 +17,7 @@
 
 .navibar-container {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: space-between;
   align-items: center;
 }
@@ -61,6 +61,7 @@
   display: inline-block;
   line-height: 20px;
   padding: 15px;
+  font-size: 13px;
 }
 .navibar__right__menu-btn {
   position: relative;
@@ -150,10 +151,18 @@
 @media (min-width: 992px) and (max-width: 1199px) {
   .navibar-wrap {
     width: 90%;
+    margin: 0 auto;
+  }
+  .navibar__signin-btn,
+  .navibar__dashboard-btn {
+    margin: 0;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+  .navibar-container {
+    flex-wrap: wrap;
+  }
   .navibar-wrap {
     width: 90%;
     height: 110px;
