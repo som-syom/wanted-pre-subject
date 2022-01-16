@@ -117,6 +117,7 @@
 .navibar__right__menu-btn__menu {
   display: none;
   padding-left: 10px;
+  margin-right: 10px;
   height: 100%;
   padding: 0 5px;
   font-size: 14px;
@@ -187,5 +188,34 @@
   .navibar__middle__menu-btn > em {
     top: 5px;
     right: -7px;
+  }
+}
+@media (max-width: 767px) {
+  .navibar-wrap {
+    height: 110px;
+  }
+  .navibar__left {
+    height: 60px;
+    width: 100%;
+    padding: 15px 20px;
+  }
+
+  .navibar__middle {
+    text-align: left;
+  }
+
+  .navibar__right__menu-btn__menu,
+  .navibar__left__signup-btn {
+    display: inline-block;
+  }
+
+  .navibar__signin-btn,
+  .navibar__dashboard-btn,
+  .navibar__right__menu-btn__division::before {
+    display: none;
+  }
+
+  .more-visible {
+    display: none;
   }
 }

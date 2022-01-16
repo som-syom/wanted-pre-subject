@@ -37,18 +37,25 @@ function NaviBar() {
               </button>
             </div>
             <ul className="navibar__middle">
+              <li className="navibar__middle__menu-btn btn">홈</li>
               <li className="navibar__middle__menu-btn btn">채용</li>
               <li className="navibar__middle__menu-btn btn">이벤트</li>
-              <li className="navibar__middle__menu-btn btn">직군별 연봉</li>
-              <li className="navibar__middle__menu-btn btn">이력서</li>
-              <li className="navibar__middle__menu-btn btn">
+              <li className="navibar__middle__menu-btn btn more-visible">
+                직군별 연봉
+              </li>
+              <li className="navibar__middle__menu-btn btn more-visible">
+                이력서
+              </li>
+              <li className="navibar__middle__menu-btn btn more-visible">
                 커뮤니티
                 <em>
                   <img src={NewIcon} alt="new" />
                 </em>
               </li>
-              <li className="navibar__middle__menu-btn btn">프리랜서</li>
-              <li className="navibar__middle__menu-btn btn">
+              <li className="navibar__middle__menu-btn btn more-visible">
+                프리랜서
+              </li>
+              <li className="navibar__middle__menu-btn btn more-visible">
                 AI 합격예측
                 <em>
                   <img src={BetaIcon} alt="beta" />
