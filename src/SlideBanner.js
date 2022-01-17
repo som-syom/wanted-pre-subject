@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slide from "./Slide";
 import "./stylesheets/SlideBanner.css";
 import { img } from "./images";
@@ -8,18 +8,30 @@ import prevBtn from "./assets/left.svg";
 function SlideBanner() {
   const sliderRef = useRef();
   // const [currentBanner, setCurrentBanner] = useState([8, 0, 1]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   let images = Object.keys(img).map((key) => img[key]);
+
+  const calcPosition = (idx) => {
+    return -11924 + 1084 * (11 - idx);
+  };
 
   const onClickPrevBtn = () => {
     console.log("click prev");
+    if (currentIndex == 0) setCurrentIndex(10);
+    else setCurrentIndex(currentIndex - 1);
   };
   const onClickNextBtn = () => {
     console.log("click prev");
+    if (currentIndex == 10) setCurrentIndex(0);
+    else setCurrentIndex(currentIndex + 1);
   };
 
   useEffect(() => {
-    sliderRef.current.style.transform = "translate3d(-100px, 0px, 0px";
-  }, []);
+    sliderRef.current.style.transition = `transform .3s`;
+    sliderRef.current.style.transform = `translateX(${calcPosition(
+      currentIndex
+    )}px)`;
+  }, [currentIndex]);
 
   return (
     <>
