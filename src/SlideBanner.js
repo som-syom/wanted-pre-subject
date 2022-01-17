@@ -8,7 +8,7 @@ import prevBtn from "./assets/left.svg";
 function SlideBanner() {
   const sliderRef = useRef();
   // const [currentBanner, setCurrentBanner] = useState([8, 0, 1]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(1);
   let images = Object.keys(img).map((key) => img[key]);
 
   const calcPosition = (idx) => {
@@ -17,12 +17,12 @@ function SlideBanner() {
 
   const onClickPrevBtn = () => {
     console.log("click prev");
-    if (currentIndex == 0) setCurrentIndex(10);
+    if (currentIndex == 1) setCurrentIndex(9);
     else setCurrentIndex(currentIndex - 1);
   };
   const onClickNextBtn = () => {
     console.log("click prev");
-    if (currentIndex == 10) setCurrentIndex(0);
+    if (currentIndex == 9) setCurrentIndex(1);
     else setCurrentIndex(currentIndex + 1);
   };
 
