@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Slide from "./Slide";
 import "./stylesheets/SlideBanner.css";
 import { img } from "./images";
@@ -17,6 +17,10 @@ function SlideBanner() {
     console.log("click prev");
   };
 
+  useEffect(() => {
+    sliderRef.current.style.transform = "translate3d(-100px, 0px, 0px";
+  }, []);
+
   return (
     <>
       <section className="slider-container">
@@ -25,14 +29,13 @@ function SlideBanner() {
             return <Slide image={image} idx={idx} key={idx} />;
           })}
         </div>
-
-        <button className="prev-btn" onClick={onClickPrevBtn}>
-          <img src={prevBtn} alt="prev" />
-        </button>
-        <button className="next-btn" onClick={onClickNextBtn}>
-          <img src={nextBtn} alt="next" />
-        </button>
       </section>
+      <button className="prev-btn" onClick={onClickPrevBtn}>
+        <img src={prevBtn} alt="prev" />
+      </button>
+      <button className="next-btn" onClick={onClickNextBtn}>
+        <img src={nextBtn} alt="next" />
+      </button>
     </>
   );
 }

@@ -24,3 +24,7 @@ a {
   padding: 0;
   line-height: 1;
 }
+
+.all-container {
+  position: relative;
+}

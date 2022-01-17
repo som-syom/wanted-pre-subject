@@ -6,8 +6,10 @@ import "./stylesheets/App.css";
 function App() {
   return (
     <>
-      <NaviBar />
-      <SlideBanner />
+      <div className="all-container">
+        <NaviBar />
+        <SlideBanner />
+      </div>
     </>
   );
 }
