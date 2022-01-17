@@ -86,6 +86,10 @@
   height: auto;
 }
 
+.navibar-left__home-btn {
+  display: none;
+}
+
 .navibar__right__menu-btn__search {
   width: 18px;
   height: 18px;
@@ -207,7 +211,7 @@
   .navibar__middle {
     text-align: left;
   }
-
+  .navibar-left__home-btn,
   .navibar__right__menu-btn__menu,
   .navibar__left__signup-btn {
     display: inline-block;

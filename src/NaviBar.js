@@ -37,7 +37,9 @@ function NaviBar() {
               </button>
             </div>
             <ul className="navibar__middle">
-              <li className="navibar__middle__menu-btn btn">홈</li>
+              <li className="navibar__middle__menu-btn btn navibar-left__home-btn">
+                홈
+              </li>
               <li className="navibar__middle__menu-btn btn">채용</li>
               <li className="navibar__middle__menu-btn btn">이벤트</li>
               <li className="navibar__middle__menu-btn btn more-visible">

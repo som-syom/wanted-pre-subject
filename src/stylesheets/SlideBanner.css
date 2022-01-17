@@ -1,0 +1,17 @@
+.slider-container {
+  padding-top: 75px;
+}
+
+.slider-images {
+  display: flex;
+}
+
+.banner-image {
+  width: 1060px;
+  padding: 0 12px;
+  box-sizing: content-box;
+}
+
+.banner-image img {
+  border-radius: 4px;
+}
