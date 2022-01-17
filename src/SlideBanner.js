@@ -31,6 +31,13 @@ function SlideBanner() {
     sliderRef.current.style.transform = `translateX(${calcPosition(
       currentIndex
     )}px)`;
+
+    let intervalId;
+    intervalId = setInterval(() => {
+      if (currentIndex == 9) setCurrentIndex(1);
+      else setCurrentIndex(currentIndex + 1);
+    }, 3000);
+    return () => clearTimeout(intervalId);
   }, [currentIndex]);
 
   return (
