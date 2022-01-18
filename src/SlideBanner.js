@@ -8,6 +8,7 @@ import prevBtn from "./assets/left.svg";
 function SlideBanner() {
   const sliderRef = useRef();
   // const [currentBanner, setCurrentBanner] = useState([8, 0, 1]);
+
   const [currentIndex, setCurrentIndex] = useState(1);
   let images = Object.keys(img).map((key) => img[key]);
 
@@ -36,7 +37,7 @@ function SlideBanner() {
     intervalId = setInterval(() => {
       if (currentIndex == 9) setCurrentIndex(1);
       else setCurrentIndex(currentIndex + 1);
-    }, 3000);
+    }, 4000);
     return () => clearTimeout(intervalId);
   }, [currentIndex]);
 
