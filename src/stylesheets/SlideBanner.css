@@ -14,6 +14,11 @@
 .banner-wrap {
   position: relative;
   width: 100%;
+  filter: brightness(50%);
+  transition: 0.2s;
+}
+.banner-wrap.activeBanner {
+  filter: brightness(100%);
 }
 
 .banner-image {
@@ -32,6 +37,11 @@
 
 .banner-text {
   text-align: center;
+  opacity: 0;
+  transition: 0.2s;
+}
+.banner-text.activeBanner {
+  opacity: 1;
 }
 
 .banner-text__h2 {

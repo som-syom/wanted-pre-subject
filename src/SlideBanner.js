@@ -8,8 +8,6 @@ import prevBtn from "./assets/left.svg";
 function SlideBanner() {
   const sliderRef = useRef();
   const [winX, setWinX] = useState(window.innerWidth);
-  // const [currentBanner, setCurrentBanner] = useState([8, 0, 1]);
-
   const [currentIndex, setCurrentIndex] = useState(1);
   let images = Object.keys(img).map((key) => img[key]);
 
@@ -59,7 +57,14 @@ function SlideBanner() {
       <section className="slider-container">
         <div className="slider-images" ref={sliderRef}>
           {images.map((image, idx) => {
-            return <Slide image={image} idx={idx} key={idx} />;
+            return (
+              <Slide
+                image={image}
+                idx={idx}
+                key={idx}
+                currentIndex={currentIndex}
+              />
+            );
           })}
         </div>
       </section>

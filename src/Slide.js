@@ -3,14 +3,20 @@ import { PropTypes } from "prop-types";
 import { text } from "./images";
 import GoIcon from "./assets/goto.svg";
 
-function Slide({ image, idx }) {
+function Slide({ image, idx, currentIndex }) {
+  let activeBanner = "banner-wrap";
+  let activeText = "banner-text";
+  if (currentIndex === idx) {
+    activeBanner += " activeBanner";
+    activeText += " activeBanner";
+  }
   return (
     <>
-      <div className="banner-wrap" key={idx}>
+      <div className={activeBanner} key={idx}>
         <div className="banner-image">
           <img src={image} alt="banner" />
         </div>
-        <div className="banner-text">
+        <div className={activeText}>
           <h2 className="banner-text__h2">{text[idx].h2}</h2>
           <h3 className="banner-text__h3">{text[idx].h3}</h3>
           <hr className="banner-text__hr"></hr>
