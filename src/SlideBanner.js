@@ -53,7 +53,7 @@ function SlideBanner() {
     }, 4000);
 
     return () => clearTimeout(intervalId);
-  }, [currentIndex, winX]);
+  }, [currentIndex, winX, imageX]);
 
   useEffect(() => {
     if (winX < 1200) {
