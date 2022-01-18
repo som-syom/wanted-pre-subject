@@ -7,13 +7,14 @@ import prevBtn from "./assets/left.svg";
 
 function SlideBanner() {
   const sliderRef = useRef();
+  const [winX, setWinX] = useState(window.innerWidth);
   // const [currentBanner, setCurrentBanner] = useState([8, 0, 1]);
 
   const [currentIndex, setCurrentIndex] = useState(1);
   let images = Object.keys(img).map((key) => img[key]);
 
   const calcPosition = (idx) => {
-    return -11924 + 1084 * (11 - idx);
+    return -11924 + 1084 * (11 - idx) + (winX - 1088) / 2;
   };
 
   const onClickPrevBtn = () => {
@@ -27,6 +28,17 @@ function SlideBanner() {
     else setCurrentIndex(currentIndex + 1);
   };
 
+  const resizeWindow = () => {
+    setWinX(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", resizeWindow);
+    return () => {
+      window.removeEventListener("resize", resizeWindow);
+    };
+  }, []);
+
   useEffect(() => {
     sliderRef.current.style.transition = `transform .3s`;
     sliderRef.current.style.transform = `translateX(${calcPosition(
@@ -35,11 +47,12 @@ function SlideBanner() {
 
     let intervalId;
     intervalId = setInterval(() => {
-      if (currentIndex == 9) setCurrentIndex(1);
-      else setCurrentIndex(currentIndex + 1);
+      setCurrentIndex(currentIndex + 1);
+      if (currentIndex === 9) setCurrentIndex(1);
     }, 4000);
+
     return () => clearTimeout(intervalId);
-  }, [currentIndex]);
+  }, [currentIndex, winX]);
 
   return (
     <>
