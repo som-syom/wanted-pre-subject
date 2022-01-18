@@ -9,10 +9,13 @@ function SlideBanner() {
   const sliderRef = useRef();
   const [winX, setWinX] = useState(window.innerWidth);
   const [currentIndex, setCurrentIndex] = useState(1);
+  const [imageX, setImageX] = useState(1060);
+
   let images = Object.keys(img).map((key) => img[key]);
 
   const calcPosition = (idx) => {
-    return -11924 + 1084 * (11 - idx) + (winX - 1088) / 2;
+    if (winX > 1200) return -11924 + 1084 * (11 - idx) + (winX - 1088) / 2;
+    else return -(imageX * 11 + 24 * 11) + (imageX + 24) * (11 - idx) + 36;
   };
 
   const onClickPrevBtn = () => {
@@ -52,6 +55,15 @@ function SlideBanner() {
     return () => clearTimeout(intervalId);
   }, [currentIndex, winX]);
 
+  useEffect(() => {
+    if (winX < 1200) {
+      setImageX(winX - 96);
+    } else {
+      setImageX(1060);
+    }
+    // imageRef.current.style.width = `${imageX}px`;
+  }, [winX]);
+
   return (
     <>
       <section className="slider-container">
@@ -63,6 +75,7 @@ function SlideBanner() {
                 idx={idx}
                 key={idx}
                 currentIndex={currentIndex}
+                imageX={imageX}
               />
             );
           })}

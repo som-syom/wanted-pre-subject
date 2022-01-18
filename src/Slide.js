@@ -1,19 +1,37 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { PropTypes } from "prop-types";
 import { text } from "./images";
 import GoIcon from "./assets/goto.svg";
 
-function Slide({ image, idx, currentIndex }) {
+function Slide({ image, idx, currentIndex, imageX }) {
+  const imageRef = useRef();
   let activeBanner = "banner-wrap";
   let activeText = "banner-text";
+
   if (currentIndex === idx) {
     activeBanner += " activeBanner";
     activeText += " activeBanner";
   }
+
+  useEffect(() => {
+    imageRef.current.style.width = `${imageX}px`;
+  }, [imageX]);
+  // const [imageX, setImageX] = useState(1060);
+  // const imageRef = useRef();
+
+  // useEffect(() => {
+  //   if (winX < 1200) {
+  //     setImageX(winX - 96);
+  //   } else {
+  //     setImageX(1060);
+  //   }
+  //   imageRef.current.style.width = `${imageX}px`;
+  // }, [winX]);
+
   return (
     <>
       <div className={activeBanner} key={idx}>
-        <div className="banner-image">
+        <div className="banner-image" ref={imageRef}>
           <img src={image} alt="banner" />
         </div>
         <div className={activeText}>
