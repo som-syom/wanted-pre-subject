@@ -1,3 +1,4 @@
+import b001 from "./assets/banner-08.jpg";
 import b00 from "./assets/banner-09.jpg";
 import b01 from "./assets/banner-01.jpg";
 import b02 from "./assets/banner-02.jpg";
@@ -9,10 +10,29 @@ import b07 from "./assets/banner-07.jpg";
 import b08 from "./assets/banner-08.jpg";
 import b09 from "./assets/banner-09.jpg";
 import b10 from "./assets/banner-01.jpg";
+import b11 from "./assets/banner-02.jpg";
 
 // const images = [b01, b02, b03, b04, b05, b06, b07, b08, b09];
-export const img = { b00, b01, b02, b03, b04, b05, b06, b07, b08, b09, b10 };
+export const img = {
+  b001,
+  b00,
+  b01,
+  b02,
+  b03,
+  b04,
+  b05,
+  b06,
+  b07,
+  b08,
+  b09,
+  b10,
+  b11,
+};
 export const text = [
+  {
+    h2: "개발자 성장 비결 공개!",
+    h3: "Velog, 글 쓰는 개발자들의 이야기",
+  },
   {
     h2: "성장하는 개발자가 되려면?",
     h3: "OOO 검색하지 말 것!",
@@ -56,5 +76,9 @@ export const text = [
   {
     h2: "성과를 내는 마케팅",
     h3: "실제 사례를 공개합니다",
+  },
+  {
+    h2: "2022년 달라지는 노동법령",
+    h3: "노무관리 쟁점 한 눈에 파악하기",
   },
 ];

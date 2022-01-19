@@ -10,23 +10,47 @@ function SlideBanner() {
   const [winX, setWinX] = useState(window.innerWidth);
   const [currentIndex, setCurrentIndex] = useState(1);
   const [imageX, setImageX] = useState(1060);
+  const [isChange, setIsChange] = useState(true);
+  const imageCount = 13;
 
   let images = Object.keys(img).map((key) => img[key]);
 
   const calcPosition = (idx) => {
-    if (winX > 1200) return -11924 + 1084 * (11 - idx) + (winX - 1088) / 2;
-    else return -(imageX * 11 + 24 * 11) + (imageX + 24) * (11 - idx) + 36;
+    if (winX > 1200)
+      return -14092 + 1084 * (imageCount - idx) + (winX - 1088) / 2;
+    else
+      return (
+        -(imageX * imageCount + 24 * imageCount) +
+        (imageX + 24) * (imageCount - idx) +
+        36
+      );
   };
 
   const onClickPrevBtn = () => {
     console.log("click prev");
-    if (currentIndex == 1) setCurrentIndex(9);
-    else setCurrentIndex(currentIndex - 1);
+    setIsChange(true);
+    setCurrentIndex(currentIndex - 1);
+    if (currentIndex === 1) {
+      setTimeout(() => {
+        sliderRef.current.style.transition = `all 0s`;
+        sliderRef.current.style.transform = `translateX(${calcPosition(9)}px)`;
+        setIsChange(false);
+        setCurrentIndex(9);
+      }, 501);
+    }
   };
   const onClickNextBtn = () => {
     console.log("click prev");
-    if (currentIndex == 9) setCurrentIndex(1);
-    else setCurrentIndex(currentIndex + 1);
+    setIsChange(true);
+    setCurrentIndex(currentIndex + 1);
+    if (currentIndex === 11) {
+      setTimeout(() => {
+        sliderRef.current.style.transition = `all 0s`;
+        sliderRef.current.style.transform = `translateX(${calcPosition(3)}px)`;
+        setIsChange(false);
+        setCurrentIndex(3);
+      }, 501);
+    }
   };
 
   const resizeWindow = () => {
@@ -41,22 +65,25 @@ function SlideBanner() {
   }, []);
 
   useEffect(() => {
-    sliderRef.current.style.transform = `translateX(${calcPosition(
-      currentIndex
-    )}px)`;
-    sliderRef.current.style.transition = `all 0.5s ease-in-out`;
+    if (isChange) {
+      sliderRef.current.style.transform = `translateX(${calcPosition(
+        currentIndex
+      )}px)`;
+      sliderRef.current.style.transition = `all 0.5s ease-in-out`;
+    }
     const intervalId = setInterval(() => {
       if (!sliderRef.current) return;
-      if (currentIndex === 9) {
+      setIsChange(true);
+      setCurrentIndex(currentIndex + 1);
+      if (currentIndex === 11) {
         setTimeout(() => {
+          setIsChange(false);
+          setCurrentIndex(3);
           sliderRef.current.style.transition = `all 0s`;
           sliderRef.current.style.transform = `translateX(${calcPosition(
-            currentIndex + 1
+            3
           )}px)`;
-          setCurrentIndex(1);
         }, 501);
-      } else {
-        setCurrentIndex(currentIndex + 1);
       }
     }, 4000);
 
@@ -70,6 +97,9 @@ function SlideBanner() {
       setImageX(1060);
     }
   }, [winX]);
+
+  // const [isDrag, setIsDrag] = useState(false);
+  // const [startX, setStartX] = useState();
 
   return (
     <>
