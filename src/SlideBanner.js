@@ -41,19 +41,27 @@ function SlideBanner() {
   }, []);
 
   useEffect(() => {
-    sliderRef.current.style.transition = `transform .3s`;
     sliderRef.current.style.transform = `translateX(${calcPosition(
       currentIndex
     )}px)`;
-
-    let intervalId;
-    intervalId = setInterval(() => {
-      setCurrentIndex(currentIndex + 1);
-      if (currentIndex === 9) setCurrentIndex(1);
+    sliderRef.current.style.transition = `all 0.5s ease-in-out`;
+    const intervalId = setInterval(() => {
+      if (!sliderRef.current) return;
+      if (currentIndex === 9) {
+        setTimeout(() => {
+          sliderRef.current.style.transition = `all 0s`;
+          sliderRef.current.style.transform = `translateX(${calcPosition(
+            currentIndex + 1
+          )}px)`;
+          setCurrentIndex(1);
+        }, 501);
+      } else {
+        setCurrentIndex(currentIndex + 1);
+      }
     }, 4000);
 
     return () => clearTimeout(intervalId);
-  }, [currentIndex, winX, imageX]);
+  }, [currentIndex, winX, imageX, onClickPrevBtn, onClickNextBtn]);
 
   useEffect(() => {
     if (winX < 1200) {
@@ -61,7 +69,6 @@ function SlideBanner() {
     } else {
       setImageX(1060);
     }
-    // imageRef.current.style.width = `${imageX}px`;
   }, [winX]);
 
   return (

@@ -35,7 +35,7 @@
 }
 
 .navibar__left__default {
-  display: inline-flex;
+  display: flex;
   align-items: center;
 }
 
@@ -61,6 +61,7 @@
   line-height: 20px;
   padding: 15px;
   font-size: 13px;
+  font-weight: 600;
 }
 .navibar__right__menu-btn {
   position: relative;
@@ -71,7 +72,7 @@
 }
 
 .navibar__left__hamberger-wrap {
-  margin-top: -2px;
+  margin-top: 4px;
   margin-right: 15px;
 }
 
@@ -147,6 +148,9 @@
 @media (min-width: 1200px) {
   .navibar-wrap {
     width: 87.72%;
+  }
+  .navibar__middle__menu-btn {
+    font-size: 14px;
   }
 }
 
