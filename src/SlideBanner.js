@@ -8,7 +8,7 @@ import prevBtn from "./assets/left.svg";
 function SlideBanner() {
   const sliderRef = useRef();
   const [winX, setWinX] = useState(window.innerWidth);
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(2);
   const [imageX, setImageX] = useState(1060);
   const [isChange, setIsChange] = useState(true);
   const imageCount = 13;
